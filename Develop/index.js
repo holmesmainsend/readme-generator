@@ -4,25 +4,12 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//         return new Promise((resolve, reject) => {
-//           fs.writeFile('', fileContent, err => {
-//             if (err) {
-//               reject(err);
-//               return;
-//             }
-      
-//             resolve({
-//               ok: true,
-//               message: 'File created!'
-//             });
-//           });
-//         });
-//       };
+
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer
+    readmeData = [];
+    return inquirer
     .prompt([
         {
           name: 'title',
@@ -127,14 +114,14 @@ function init() {
             choices: ['MIT', 'GNU GPLv3', 'GNU AGPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'The Unlicense']
           },
       ])
-      .then((answer) => {
-          console.log(answer.license); 
+      .then(data => {
+          readmeData.push(data);
+          return readmeData;
       });
 }
 
 // Function call to initialize app
 init()
-// .then()
-// .catch(err => {
-//     console.log(err);
-//   });
+.then(readmeData => {
+    console.log(readmeData);
+})
