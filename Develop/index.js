@@ -35,18 +35,6 @@ function init() {
         },
       },
       {
-        name: "description",
-        message: "Enter a project description",
-        validate: (githubInput) => {
-          if (githubInput) {
-            return true;
-          } else {
-            console.log("Please enter a description");
-            return false;
-          }
-        },
-      },
-      {
         name: "installation",
         message: "Enter installation instructions",
         validate: (githubInput) => {
@@ -71,37 +59,13 @@ function init() {
         },
       },
       {
-        name: "contributions",
-        message: "Enter contribution guidelines",
+        name: "credits",
+        message: "Enter any credits",
         validate: (githubInput) => {
           if (githubInput) {
             return true;
           } else {
-            console.log("Please enter contribution guidelines");
-            return false;
-          }
-        },
-      },
-      {
-        name: "testing",
-        message: "Enter test instructions",
-        validate: (githubInput) => {
-          if (githubInput) {
-            return true;
-          } else {
-            console.log("Please enter test instructions");
-            return false;
-          }
-        },
-      },
-      {
-        name: "description",
-        message: "Enter a project description",
-        validate: (githubInput) => {
-          if (githubInput) {
-            return true;
-          } else {
-            console.log("Please enter a description");
+            console.log("Please enter credits");
             return false;
           }
         },
@@ -120,6 +84,18 @@ function init() {
           "Boost Software License 1.0",
           "The Unlicense",
         ],
+      },
+      {
+        name: "testing",
+        message: "Enter test instructions",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter test instructions");
+            return false;
+          }
+        },
       },
     ])
     .then((data) => {
