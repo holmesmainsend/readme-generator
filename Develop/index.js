@@ -4,13 +4,27 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {
+//         return new Promise((resolve, reject) => {
+//           fs.writeFile('', fileContent, err => {
+//             if (err) {
+//               reject(err);
+//               return;
+//             }
+      
+//             resolve({
+//               ok: true,
+//               message: 'File created!'
+//             });
+//           });
+//         });
+//       };
 
 // TODO: Create a function to initialize app
 function init() {
-    return inquirer.prompt([
+    inquirer
+    .prompt([
         {
-          type: 'input',
           name: 'title',
           message: 'What is the title of your project?',
           validate: titleInput => {
@@ -23,7 +37,6 @@ function init() {
           }
         },
         {
-          type: 'input',
           name: 'description',
           message: 'Enter a project description',
           validate: githubInput => {
@@ -36,7 +49,6 @@ function init() {
           }
         },
         {
-            type: 'input',
             name: 'description',
             message: 'Enter a project description',
             validate: githubInput => {
@@ -49,7 +61,6 @@ function init() {
             }
           },
           {
-            type: 'input',
             name: 'installation',
             message: 'Enter installation instructions',
             validate: githubInput => {
@@ -62,7 +73,6 @@ function init() {
             }
           },
           {
-            type: 'input',
             name: 'usage',
             message: 'Enter usage information',
             validate: githubInput => {
@@ -75,7 +85,6 @@ function init() {
             }
           },
           {
-            type: 'input',
             name: 'contributions',
             message: 'Enter contribution guidelines',
             validate: githubInput => {
@@ -88,7 +97,6 @@ function init() {
             }
           },
           {
-            type: 'input',
             name: 'testing',
             message: 'Enter test instructions',
             validate: githubInput => {
@@ -101,7 +109,6 @@ function init() {
             }
           },
           {
-            type: 'input',
             name: 'description',
             message: 'Enter a project description',
             validate: githubInput => {
@@ -119,8 +126,15 @@ function init() {
             message: 'Which license does this application have?',
             choices: ['MIT', 'GNU GPLv3', 'GNU AGPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'The Unlicense']
           },
-      ]);
+      ])
+      .then((answer) => {
+          console.log(answer.license); 
+      });
 }
 
 // Function call to initialize app
-init();
+init()
+// .then()
+// .catch(err => {
+//     console.log(err);
+//   });
