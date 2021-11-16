@@ -2,6 +2,7 @@
 const fs = require('fs');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
+const renderLicenseBadge = require("./utils/generateMarkdown");
 
 // TODO: Create a function to write README file
 const writeFile = fileContent => {
@@ -99,18 +100,6 @@ function init() {
           "The Unlicense",
         ],
       },
-      {
-        name: "testing",
-        message: "Enter test instructions",
-        validate: (githubInput) => {
-          if (githubInput) {
-            return true;
-          } else {
-            console.log("Please enter test instructions");
-            return false;
-          }
-        },
-      },
     ])
     .then((data) => {
       return data;
@@ -120,11 +109,12 @@ function init() {
 // Function call to initialize app
 init()
   .then(data => {
-      return generateMarkdown(data);
+    console.log(renderLicenseBadge(data));
+      // return generateMarkdown(data);
   })
-  .then(data => {
-      writeFile(data);
-  })
+  // .then(data => {
+  //     writeFile(data);
+  // })
   .catch((err) => {
     console.log(err);
   });

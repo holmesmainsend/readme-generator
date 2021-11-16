@@ -1,32 +1,60 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(data) {
+  let {title, description, installation, usage, credits, license} = data;
+  badge = 0;
+    switch (license) {
+      case "MIT":
+        badge = "1";
+        break;
+      case "GNU GPLv3":
+        badge = "";
+        break;
+      case "GNU AGPLv3":
+        badge = "";
+        break;
+      case "GNU LGPLv3":
+        badge = "";
+        break;
+      case "Mozilla Public License 2.0":
+        badge = "";
+        break;
+      case "Apache License 2.0":
+        badge = "";
+        break;
+      case "Boost Software License 1.0":
+        badge = "";
+        break;
+      case "The Unlicense":
+        badge = "";
+        break;
+    }
+    return badge;
+}
 
 // TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const {title, description, installation, usage, credits, license, testing} = data
+  let {title, description, installation, usage, credits, license} = data;
   return `# ${title}
 
-## ${description}
+## Description
+${description}
 
-## ${installation}
+## Installation
+${installation}
 
-## ${usage}
+## Usage
+${usage}
 
-## ${credits}
+## Credits
+${credits}
 
-## ${license}
-
-## ${testing}
+## License
+${license}
 `;
 }
 
 module.exports = generateMarkdown;
+module.exports = renderLicenseBadge;
