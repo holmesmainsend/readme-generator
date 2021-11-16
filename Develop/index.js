@@ -1,10 +1,9 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const fs = require('fs');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
-const renderLicenseBadge = require("./utils/generateMarkdown");
 
-// TODO: Create a function to write README file
+// Function to write README file
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
     fs.writeFile('./README.md', fileContent, err => {
@@ -21,7 +20,7 @@ const writeFile = fileContent => {
   });
 };
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
   return inquirer
     .prompt([
@@ -109,12 +108,11 @@ function init() {
 // Function call to initialize app
 init()
   .then(data => {
-    console.log(renderLicenseBadge(data));
-      // return generateMarkdown(data);
+      return generateMarkdown(data);
   })
-  // .then(data => {
-  //     writeFile(data);
-  // })
+  .then(data => {
+      writeFile(data);
+  })
   .catch((err) => {
     console.log(err);
   });
