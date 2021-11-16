@@ -1,127 +1,137 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create a function to write README file
 
 
 // TODO: Create a function to initialize app
 function init() {
-    readmeData = [];
-    return inquirer
+  return inquirer
     .prompt([
-        {
-          name: 'title',
-          message: 'What is the title of your project?',
-          validate: titleInput => {
-            if (titleInput) {
-              return true;
-            } else {
-              console.log('Please enter a title');
-              return false;
-            }
+      {
+        name: "title",
+        message: "What is the title of your project?",
+        validate: (titleInput) => {
+          if (titleInput) {
+            return true;
+          } else {
+            console.log("Please enter a title");
+            return false;
           }
         },
-        {
-          name: 'description',
-          message: 'Enter a project description',
-          validate: githubInput => {
-            if (githubInput) {
-              return true;
-            } else {
-              console.log('Please enter a description');
-              return false;
-            }
+      },
+      {
+        name: "description",
+        message: "Enter a project description",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter a description");
+            return false;
           }
         },
-        {
-            name: 'description',
-            message: 'Enter a project description',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter a description');
-                return false;
-              }
-            }
-          },
-          {
-            name: 'installation',
-            message: 'Enter installation instructions',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter installation instructions');
-                return false;
-              }
-            }
-          },
-          {
-            name: 'usage',
-            message: 'Enter usage information',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter usage information');
-                return false;
-              }
-            }
-          },
-          {
-            name: 'contributions',
-            message: 'Enter contribution guidelines',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter contribution guidelines');
-                return false;
-              }
-            }
-          },
-          {
-            name: 'testing',
-            message: 'Enter test instructions',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter test instructions');
-                return false;
-              }
-            }
-          },
-          {
-            name: 'description',
-            message: 'Enter a project description',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter a description');
-                return false;
-              }
-            }
-          },
-          {
-            type: 'list',
-            name: 'license',
-            message: 'Which license does this application have?',
-            choices: ['MIT', 'GNU GPLv3', 'GNU AGPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'The Unlicense']
-          },
-      ])
-      .then(data => {
-          readmeData.push(data);
-          return readmeData;
-      });
+      },
+      {
+        name: "description",
+        message: "Enter a project description",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter a description");
+            return false;
+          }
+        },
+      },
+      {
+        name: "installation",
+        message: "Enter installation instructions",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter installation instructions");
+            return false;
+          }
+        },
+      },
+      {
+        name: "usage",
+        message: "Enter usage information",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter usage information");
+            return false;
+          }
+        },
+      },
+      {
+        name: "contributions",
+        message: "Enter contribution guidelines",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter contribution guidelines");
+            return false;
+          }
+        },
+      },
+      {
+        name: "testing",
+        message: "Enter test instructions",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter test instructions");
+            return false;
+          }
+        },
+      },
+      {
+        name: "description",
+        message: "Enter a project description",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter a description");
+            return false;
+          }
+        },
+      },
+      {
+        type: "list",
+        name: "license",
+        message: "Which license does this application have?",
+        choices: [
+          "MIT",
+          "GNU GPLv3",
+          "GNU AGPLv3",
+          "GNU LGPLv3",
+          "Mozilla Public License 2.0",
+          "Apache License 2.0",
+          "Boost Software License 1.0",
+          "The Unlicense",
+        ],
+      },
+    ])
+    .then((data) => {
+      return data;
+    });
 }
 
 // Function call to initialize app
 init()
-.then(readmeData => {
-    console.log(readmeData);
-})
+  .then(data => {
+      console.log(generateMarkdown(data));
+  })
+  .catch((err) => {
+    console.log(err);
+  });
