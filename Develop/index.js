@@ -11,7 +11,6 @@ const writeFile = fileContent => {
         reject(err);
         return;
       }
-
       resolve({
         ok: true,
         message: 'File created!'
