@@ -1,6 +1,6 @@
 // Function that returns license badge + link based on which license is passed in
 function renderLicenseBadge(data) {
-  let {title, description, installation, usage, credits, license} = data;
+  let {title, description, installation, usage, creditsOrContributing, testing, license, username, email} = data;
   badge = 0;
     switch (license) {
       case "MIT":
@@ -33,31 +33,46 @@ function renderLicenseBadge(data) {
 
 // Function to generate markdown for README
 function generateMarkdown(data) {
-  let {title, description, installation, usage, credits, license} = data;
+  let {title, description, installation, usage, creditsOrContributing, testing, license, username, email} = data;
   let badgeIcon = renderLicenseBadge(data);
   return `# ${title}
+
+${badgeIcon}
 
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Credits](#credits)
+  * [Credits and/or Contributing](#credits-and/or-contributing)
+  * [Testing](#testing)
   * [License](#license)
+  * [Questions?](#questions?)
+
 
 ## Description
   ${description}
 
+
 ## Installation
   ${installation}
 
-## Usage
-  ${usage}
 
-## Credits
-  ${credits}
+## Usage
+  [Video walkthrough](https://watch.screencastify.com/v/X8ZQkenMti3BZ4gsEwnl)
+
+
+## Credits and/or Contributing
+  ${creditsOrContributing}
+
+## Testing
+  ${testing}
 
 ## License
-  ${badgeIcon}
+  Click the badge at the top of this README for more information on this particular license.
+
+## Questions?
+  * GitHub: https://github.com/${username}
+  * Email: ${email}
 `;
 }
 

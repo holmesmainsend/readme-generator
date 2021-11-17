@@ -72,13 +72,25 @@ function init() {
         },
       },
       {
-        name: "credits",
-        message: "Enter any credits",
+        name: "creditsOrContributing",
+        message: "Enter any credits and/or contributing information",
         validate: (githubInput) => {
           if (githubInput) {
             return true;
           } else {
-            console.log("Please enter credits");
+            console.log("Please enter credits and/or contributing information");
+            return false;
+          }
+        },
+      },
+      {
+        name: "testing",
+        message: "Enter testing instructions",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter testing instructions");
             return false;
           }
         },
@@ -97,6 +109,30 @@ function init() {
           "Boost Software License 1.0",
           "The Unlicense",
         ],
+      },
+      {
+        name: "username",
+        message: "Enter your GitHub username",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter your GitHub username");
+            return false;
+          }
+        },
+      },
+      {
+        name: "email",
+        message: "Enter your email address",
+        validate: (githubInput) => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log("Please enter your email address");
+            return false;
+          }
+        },
       },
     ])
     .then((data) => {
