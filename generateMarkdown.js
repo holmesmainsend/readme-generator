@@ -58,7 +58,7 @@ ${badgeIcon}
 
 
 ## Usage
-  [Video walkthrough](https://watch.screencastify.com/v/X8ZQkenMti3BZ4gsEwnl)
+  ${usage}
 
 
 ## Credits and/or Contributing
