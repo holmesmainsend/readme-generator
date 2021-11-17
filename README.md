@@ -1,16 +1,16 @@
-# gffg
+# generator
 
 ## Description
-  dd
+  ggg
 
 ## Installation
-  vv
+  sss
 
 ## Usage
-  dsd
+  vvv
 
 ## Credits
-  ee
+  eee
 
 ## License
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
